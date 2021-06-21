@@ -143,6 +143,7 @@ echo "#####################"
 echo -ne '\n'
 
 open "$KIBANA_URL/app/canvas/"
+open "$KIBANA_URL/app/dev_tools/"
 open "$KIBANA_URL/app/management/ingest/ingest_pipelines/"
 
 echo "If not yet there, paste the following script in Dev Tools:"

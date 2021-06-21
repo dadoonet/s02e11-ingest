@@ -1,4 +1,4 @@
-# Demo scripts used for S02E09 - Elastic Daily Bytes - Kibana Maps
+# Demo scripts used for S02E11 - Elastic Daily Bytes - Kibana Ingest Pipeline Management
 
 ![Kibana Ingest Management](images/00-talk.png "Kibana Ingest Management")
 
