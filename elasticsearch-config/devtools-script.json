@@ -1,0 +1,43 @@
+# Show the dataset
+GET /demo_csv/_search
+
+#{
+#  "location": {
+#    "lon": 1.969323,
+#    "lat": 49.06789
+#  },
+#  "address": {
+#    "zipcode": "95450",
+#    "number": "1",
+#    "city": "Ableiges",
+#    "street_name": "Rue du Clos Saint-Martin"
+#  },
+#  "source": "OSM"
+#}
+
+
+# Take some random data
+GET /demo_csv/_search
+{
+  "query": {
+    "function_score": {
+      "random_score": {}
+    }
+  }
+}
+
+# Reindex 
+POST /_reindex?wait_for_completion=true
+{
+  "source": {
+    "index": "demo_csv"
+  },
+  "dest": {
+    "index": "demo_csv_bano",
+    "pipeline": "bano"
+  }
+}
+
+# Check it
+GET /demo_csv_bano/_search
+
