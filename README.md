@@ -5,7 +5,7 @@
 ## Setup
 
 The setup will check that Elasticsearch and Kibana are running.
-It will remove any index named `demo_csv*`.
+It will remove any index named `demo_csv*` and an ingest pipeline named `bano`.
 
 It will also add Kibana Canvas slides.
 

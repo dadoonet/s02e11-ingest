@@ -106,6 +106,7 @@ echo "#######################"
 echo -ne '\n'
 
 curl_delete "$ELASTICSEARCH_URL/demo_csv*"
+curl_delete "$ELASTICSEARCH_URL/_ingest/pipeline/bano"
 
 if [ ! -e $DATASOURCE_DIR ] ; then
     echo "Creating $DATASOURCE_DIR dir"
