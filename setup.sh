@@ -116,10 +116,10 @@ fi
 download_region 95
 
 # Transform the X first lines to a bulk request
-
+echo "Creating the data. Please wait..."
 head -10000 $DATASOURCE_DIR/bano-95.csv | while read -r line; do NOW=$(date +"%Y-%m-%dT%T") ; printf "{ \"index\" : {}}\n{\"@timestamp\":\"$NOW\", \"message\":\"$line\"}\n"; done > $DATASOURCE_DIR/bulk-95.ndjson
 
-echo "Injecting the datasource. Please wait..."
+echo "Injecting the data. Please wait..."
 curl -XPOST "$ELASTICSEARCH_URL/demo_csv/_bulk" -s -u elastic:$ELASTIC_PASSWORD -H 'Content-Type: application/x-ndjson' --data-binary "@$DATASOURCE_DIR/bulk-95.ndjson" | jq '{took: .took, errors: .errors}' ; echo
 
 #echo -ne '\n'
